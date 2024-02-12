@@ -1,4 +1,7 @@
-﻿using System;
+﻿using AbsenceApplication.Business;
+using AbsenceApplication.Models;
+using AbsenceApplication.Views.DataEntry;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,23 @@ namespace AbsenceApplication.Views.MyUserControls
         public UCEtudiant()
         {
             InitializeComponent();
+        }
+
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        {
+            StudentDataEntry dataEntry = new StudentDataEntry();
+            Etudiant etudiant = new Etudiant();
+
+            dataEntry.DataContext = etudiant;
+
+            //dataEntry.Show(); // Pas bien parce que ça ne bloque pas, on peut ouvrir plusieurs même fenêtre, le code continue
+
+            if (dataEntry.ShowDialog() == true) // Mieux à utiliser
+            {
+                UCEtudiantBusiness bs = (UCEtudiantBusiness)this.DataContext;
+                bs.Students.Add(etudiant);
+            }
+
         }
     }
 }
