@@ -1,5 +1,6 @@
 ﻿using AbsenceApplication.Business;
 using AbsenceApplication.Models;
+using AbsenceApplication.Views.MyUserControls;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,12 +22,18 @@ namespace AbsenceApplication
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainWindowBusiness();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void btnStudent_Click(object sender, RoutedEventArgs e)
         {
+            grContent.Children.Clear();
+            grContent.Children.Add(new UCEtudiant { DataContext = new UCEtudiantBusiness()});
+        }
 
+        private void btnAbsence_Click(object sender, RoutedEventArgs e)
+        {
+            grContent.Children.Clear();
+            grContent.Children.Add(new UCAbsence { DataContext = new UCAbsenceBusiness()});
         }
     }
 }
