@@ -8,15 +8,18 @@ namespace AbsenceApplication.Models
 {
     public class Etudiant
     {
+        #region Properties
         public string Nom { get; set; }
         public string Prenom { get; set; }
         public string CIN { get; set; }
         public string CNE { get; set; }
         public DateTime DateNaissance { get; set; }
+        #endregion
 
+        #region Constructors
         public Etudiant()
         {
-            
+
         }
 
         public Etudiant(string nom)
@@ -32,6 +35,8 @@ namespace AbsenceApplication.Models
             CNE = cNE;
             DateNaissance = dateNaissance;
         }
+        #endregion
+
 
     }
 }

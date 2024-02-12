@@ -1,4 +1,5 @@
-﻿using AbsenceApplication.Models;
+﻿using AbsenceApplication.Business;
+using AbsenceApplication.Models;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,16 +21,12 @@ namespace AbsenceApplication
         public MainWindow()
         {
             InitializeComponent();
+            this.DataContext = new MainWindowBusiness();
         }
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            List<Etudiant> etudiants = new List<Etudiant>
-            {
-                new Etudiant("Le boss", "Junior", "111", "222", new DateTime(1999,12,09))
-            };
 
-            dgStudent.ItemsSource = etudiants;
         }
     }
 }
