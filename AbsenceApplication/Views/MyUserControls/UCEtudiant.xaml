@@ -18,18 +18,18 @@
 
         <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="0,10,0,0" Width="124" Grid.Row="1" Height="150" VerticalAlignment="Top">
             <Button x:Name="btnAdd" 
-                Content="Ajouter" 
-                Height="30" Width="115" Margin="0,10,0,10" Click="btnAdd_Click"/>
+                Content="{Binding AddButtonLabel}" 
+                Height="30" Margin="0,10,0,10" Click="btnAdd_Click"/>
             <Button x:Name="btnEdit" 
-                Content="Editer" 
-                Height="30" Width="115" Margin="0,10,0,10"/>
+                Content="{Binding EditButtonLabel}" 
+                Height="30" Margin="0,10,0,10" Click="btnEdit_Click"/>
             <Button x:Name="btnDelete" 
-                Content="Supprimer" 
-                Height="30" Width="115" Margin="0,10,0,10"/>
+                Content="{Binding DeleteButtonLabel}" 
+                Height="30" Margin="0,10,0,10" Click="btnDelete_Click"/>
 
         </StackPanel>
-        <DataGrid Grid.Column="1" Grid.Row="1" ItemsSource="{Binding Students}"/>
-        <Label Grid.Column="1" Content="Gestion etudiants" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
+        <DataGrid Grid.Column="1" Grid.Row="1" ItemsSource="{Binding ListOfData}" SelectedItem="{Binding SelectedStudent}"/>
+        <Label Grid.Column="1" Content="{Binding BusinessLabel}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
 
     </Grid>
 </UserControl>

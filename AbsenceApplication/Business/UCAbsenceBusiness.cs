@@ -9,11 +9,21 @@ namespace AbsenceApplication.Business
 {
     public class UCAbsenceBusiness
     {
-        public List<Absence> Absences { get; set; }
+        public string BusinessLabel { get; set; }
+        public string AddButtonLabel { get; set; }
+        public string EditButtonLabel { get; set; }
+        public string DeleteButtonLabel { get; set; }
+
+        public List<Absence> ListOfData { get; set; }
 
         public UCAbsenceBusiness()
         {
-            Absences = new List<Absence>
+            BusinessLabel = "Gestion absences";
+            AddButtonLabel = "Ajouter absence";
+            EditButtonLabel = "Modifier absence";
+            DeleteButtonLabel = "Supprimer absence";
+
+            ListOfData = new List<Absence>
             {
                 new Absence(1),
                 new Absence(2),

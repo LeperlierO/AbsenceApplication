@@ -30,19 +30,61 @@ namespace AbsenceApplication.Views.MyUserControls
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            StudentDataEntry dataEntry = new StudentDataEntry();
-            Etudiant etudiant = new Etudiant();
-
-            dataEntry.DataContext = etudiant;
-
-            //dataEntry.Show(); // Pas bien parce que ça ne bloque pas, on peut ouvrir plusieurs même fenêtre, le code continue
-
-            if (dataEntry.ShowDialog() == true) // Mieux à utiliser
+            if(this.DataContext is UCEtudiantBusiness)
             {
-                UCEtudiantBusiness bs = (UCEtudiantBusiness)this.DataContext;
-                bs.Students.Add(etudiant);
+                StudentDataEntry dataEntry = new StudentDataEntry();
+                Etudiant etudiant = new Etudiant();
+
+                dataEntry.DataContext = etudiant;
+
+                //dataEntry.Show(); // Pas bien parce que ça ne bloque pas, on peut ouvrir plusieurs même fenêtre, le code continue
+
+                if (dataEntry.ShowDialog() == true) // Mieux à utiliser
+                {
+                    UCEtudiantBusiness bs = (UCEtudiantBusiness)this.DataContext;
+                    bs.ListOfData.Add(etudiant);
+                }
+            }
+            else if(this.DataContext is UCAbsenceBusiness)
+            {
+                AbsenceDataEntry absenceDataEntry = new AbsenceDataEntry();
+                absenceDataEntry.ShowDialog();
             }
 
+        }
+
+        private void btnEdit_Click(object sender, RoutedEventArgs e)
+        {
+            UCEtudiantBusiness bs = (UCEtudiantBusiness)this.DataContext;
+
+            if(bs.SelectedStudent != null)
+            {
+                StudentDataEntry dataEntry = new StudentDataEntry();
+                dataEntry.DataContext = bs.SelectedStudent;
+
+                if(dataEntry.ShowDialog() == true)
+                {
+
+                }
+            }
+            else
+            {
+                MessageBox.Show("Sélectionner un étudiant", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            UCEtudiantBusiness bs = (UCEtudiantBusiness)this.DataContext;
+
+            if (bs.SelectedStudent != null)
+            {
+                bs.ListOfData.Remove(bs.SelectedStudent);
+            }
+            else
+            {
+                MessageBox.Show("Sélectionner un étudiant", "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

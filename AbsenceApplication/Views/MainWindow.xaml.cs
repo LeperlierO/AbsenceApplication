@@ -19,6 +19,8 @@ namespace AbsenceApplication
     /// </summary>
     public partial class MainWindow : Window
     {
+        UCEtudiant uCEtudiant;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -27,13 +29,17 @@ namespace AbsenceApplication
         private void btnStudent_Click(object sender, RoutedEventArgs e)
         {
             grContent.Children.Clear();
-            grContent.Children.Add(new UCEtudiant { DataContext = new UCEtudiantBusiness()});
+            uCEtudiant = new UCEtudiant();
+            uCEtudiant.DataContext = new UCEtudiantBusiness();
+            grContent.Children.Add(uCEtudiant);
         }
 
         private void btnAbsence_Click(object sender, RoutedEventArgs e)
         {
-            grContent.Children.Clear();
-            grContent.Children.Add(new UCAbsence { DataContext = new UCAbsenceBusiness()});
+            uCEtudiant.DataContext = new UCAbsenceBusiness();
+
+            //grContent.Children.Clear();
+            //grContent.Children.Add(new UCAbsence { DataContext = new UCAbsenceBusiness()});
         }
     }
 }
