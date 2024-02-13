@@ -17,7 +17,7 @@ namespace AbsenceApplication.Business
 
 
         public Etudiant SelectedStudent { get; set; }
-        public ObservableCollection<Etudiant> ListOfData { get; set; } // Observable permet de mettre à jour les données
+        public ObservableCollection<Etudiant> ListOfData { get; set; } // Observable permet de mettre à jour les données sur l'interface
 
         public UCEtudiantBusiness()
         {
