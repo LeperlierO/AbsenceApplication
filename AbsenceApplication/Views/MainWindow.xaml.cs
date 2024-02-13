@@ -24,22 +24,21 @@ namespace AbsenceApplication
         public MainWindow()
         {
             InitializeComponent();
+            uCEtudiant = new UCEtudiant();
         }
 
         private void btnStudent_Click(object sender, RoutedEventArgs e)
         {
             grContent.Children.Clear();
-            uCEtudiant = new UCEtudiant();
             uCEtudiant.DataContext = new UCEtudiantBusiness();
             grContent.Children.Add(uCEtudiant);
         }
 
         private void btnAbsence_Click(object sender, RoutedEventArgs e)
         {
+            grContent.Children.Clear();
             uCEtudiant.DataContext = new UCAbsenceBusiness();
-
-            //grContent.Children.Clear();
-            //grContent.Children.Add(new UCAbsence { DataContext = new UCAbsenceBusiness()});
+            grContent.Children.Add(uCEtudiant);
         }
     }
 }

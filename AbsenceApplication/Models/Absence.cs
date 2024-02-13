@@ -8,7 +8,12 @@ namespace AbsenceApplication.Models
 {
     public class Absence
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
+
+        public Absence()
+        {
+            
+        }
 
         public Absence(int id)
         {

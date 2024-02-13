@@ -18,8 +18,8 @@
         </Grid.ColumnDefinitions>
         <Label Content="Id" HorizontalAlignment="Left" Margin="20,54,0,0" VerticalAlignment="Top"/>
         <TextBox Text="{Binding Id}" HorizontalAlignment="Left" Margin="60,58,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="510" Grid.Column="1"/>
-        <Button x:Name="btnSave" Grid.Column="1" Content="Enregistrer" HorizontalAlignment="Left" Margin="95,12,0,0" Grid.Row="2" VerticalAlignment="Top"/>
-        <Button x:Name="btnCancel" Grid.Column="1" Content="Annuler" HorizontalAlignment="Left" Margin="215,12,0,0" Grid.Row="2" VerticalAlignment="Top"/>
+        <Button x:Name="btnSave" Grid.Column="1" Content="Enregistrer" HorizontalAlignment="Left" Margin="95,12,0,0" Grid.Row="2" VerticalAlignment="Top" Click="btnSave_Click"/>
+        <Button x:Name="btnCancel" Grid.Column="1" Content="Annuler" HorizontalAlignment="Left" Margin="215,12,0,0" Grid.Row="2" VerticalAlignment="Top" Click="btnCancel_Click"/>
 
     </Grid>
 </Window>

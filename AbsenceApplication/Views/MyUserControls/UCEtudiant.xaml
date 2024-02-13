@@ -23,7 +23,7 @@
         </DataTemplate>
         <DataTemplate x:Key="AbsenceDataTemplate" DataType="{x:Type MyClasses:Absence}">
             <StackPanel Orientation="Horizontal">
-                <CheckBox/>
+                <CheckBox Margin="10,10,10,10"/>
                 <TextBlock Text="{Binding Id}" Margin="10,10,10,10"/>
             </StackPanel>
         </DataTemplate>
@@ -41,19 +41,23 @@
 
         <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="0,10,0,0" Width="124" Grid.Row="1" Height="150" VerticalAlignment="Top">
             <Button x:Name="btnAdd" 
-                Content="{Binding AddButtonLabel}" 
-                Height="30" Margin="0,10,0,10" Click="btnAdd_Click"/>
+                    Content="{Binding AddButtonLabel}"
+                    Height="30" Margin="0,10,0,10" 
+                    Command="{Binding AddCommand}"/>
             <Button x:Name="btnEdit" 
-                Content="{Binding EditButtonLabel}" 
-                Height="30" Margin="0,10,0,10" Click="btnEdit_Click"/>
+                    Content="{Binding EditButtonLabel}" 
+                    Height="30" Margin="0,10,0,10" 
+                    Command="{Binding EditCommand}"/>
             <Button x:Name="btnDelete" 
-                Content="{Binding DeleteButtonLabel}" 
-                Height="30" Margin="0,10,0,10" Click="btnDelete_Click"/>
+                    Content="{Binding DeleteButtonLabel}" 
+                    Height="30" Margin="0,10,0,10" 
+                    Command="{Binding DeleteCommand}"/>
 
         </StackPanel>
         <Label Grid.Column="1" Content="{Binding BusinessLabel}" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Center"/>
         <ListBox Grid.Column="1" Grid.Row="1" 
                  ItemsSource="{Binding ListOfData}" 
+                 SelectedItem="{Binding SelectedData}"
                  ItemTemplateSelector="{StaticResource MySelector}"/> <!-- Ref au selector qu'on a créé pour select la template -->
 
     </Grid>
